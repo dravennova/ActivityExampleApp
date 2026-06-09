@@ -10,7 +10,9 @@ import SwiftUI
 struct ContentView: View {
     var activities = ["Archery", "Baseball", "Basketball", "Bowling", "Boxing", "Cricket", "Curling", "Fencing", "Golf", "Hiking", "Lacrosse", "Rugby", "Squash"]
     
-    var selected = "Baseball"
+    var colors: [Color] = [.blue, .cyan, .green, .yellow, .orange, .red, .purple, .pink, .gray, .black, .indigo, .mint, .pink]
+    
+    @State private var selected = "Baseball"
     
     var body: some View {
         VStack{
@@ -19,7 +21,7 @@ struct ContentView: View {
             
             VStack{
                 Circle()
-                    .fill(.blue)
+                    .fill(colors.randomElement() ?? .blue)
                     .padding()
                     .overlay(
                         Image(systemName: "figure.\(selected.lowercased())")
@@ -30,6 +32,11 @@ struct ContentView: View {
                 Text("\(selected)!")
                     .font(.title)
             }
+            Button("Try again")
+            {
+                selected = activities.randomElement() ?? "Archery"
+            }
+            .buttonStyle(.borderedProminent)
         }
         
     }
