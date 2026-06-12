@@ -18,7 +18,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack{
-            Text("Let's try...")
+            Text("Why not try...")
                 .font(.largeTitle.bold())
             
             Spacer()
